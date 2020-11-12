@@ -6,9 +6,9 @@ class Api
 
     attr_accessor :query
 
-    # def initialize
-    #     @query = query
-    # end
+    def initialize
+        @query = query
+    end
 
     def fetch_characters
         
@@ -57,15 +57,20 @@ class Api
 
     end
 
-    def create_characters
+    def create_characters #displays list of characters 1-10
         character = fetch_characters
         # self.fetch_characters.each{|character| Characters.new character.name}
         character["results"].each{|character| Characters.new(character["name"], character["url"])}
     end
-    binding.pry
+
+    def display_character #displays a selected characters' name, gender, and birth year
+        info = update_character
+        info["results"].each{|info| Characters.new(info["name"], info["gender"], info["birth year"])}
+    end
+  
 
 end
-
+# binding.pry
 #index0 of Characters.all
 
 

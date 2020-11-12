@@ -5,8 +5,7 @@ class Cli
     def start
         puts "Welcome Padawan"
         puts "To view Star Wars character, enter 'characters'"
-        puts "To leave, enter 'exit'."
-
+        puts "To leave, enter 'exit'"
         menu
     end
 
@@ -25,13 +24,16 @@ class Cli
     end
 
     def character_list
+        api = Api.new
+        api.display_character
         Characters.all.each_with_index do |character, index|
             puts "#{index + 1}. #{character.name}"
         end
         puts ""
         puts ""
-        puts "which character would you like to learn about? Enter Number:"
-        input = gets.strip.chomp
+        puts "which character would you like to learn about? Enter Name:"
+        input = gets.strip.downcase
+       
 
         character_selection(input)
     end
@@ -46,7 +48,7 @@ class Cli
     end
 
     def goodbye
-        "May the force be with you"
+        puts "May the force be with you"
     end
 
     def invalid_entry

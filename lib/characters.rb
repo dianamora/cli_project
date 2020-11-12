@@ -1,12 +1,13 @@
 #where objects are created and stored for user display, aka StarWars characters
 
 class Characters 
-    attr_accessor :name, :url
+    attr_accessor :name, :gender, :url
     @@all = []
 
     def initialize(name, url)
         @name = name
         @url = url
+        @gender = gender
         @@all << self
     end
 
