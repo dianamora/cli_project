@@ -4,13 +4,13 @@ require 'pry'
 require_relative './characters.rb'
 class Api 
 
-    attr_accessor :query
+    # attr_accessor :query
 
-    def initialize
-        @query = query
-    end
+    # def initialize
+    #     @query = query
+    # end
 
-    def fetch_characters
+    def self.fetch_characters
         
         url = "https://www.swapi.tech/api/people/"
 
@@ -21,52 +21,53 @@ class Api
     end
 
 
-    def update_character(input)
+    def self.update_character(url)
         # url = "https://www.swapi.tech/api/people/#{input}"
         # input = gets.chomp
 
       
-        case input
-        when "1"
-            url = "https://www.swapi.tech/api/people/1"
-        when "2"
-            url = "https://www.swapi.tech/api/people/2"
-        when "3"
-            url = "https://www.swapi.tech/api/people/3"
-        when "4"
-            url = "https://www.swapi.tech/api/people/4"
-        when "5"
-            url = "https://www.swapi.tech/api/people/5"
-        when "6"
-            url = "https://www.swapi.tech/api/people/6"
-        when "7"
-            url = "https://www.swapi.tech/api/people/7"
-        when "8"
-            url = "https://www.swapi.tech/api/people/8"
-        when "9"
-            url = "https://www.swapi.tech/api/people/9"
-        when "10"
-            url = "https://www.swapi.tech/api/people/10"
-        else 
-            url = "https://www.swapi.tech/api/people/#{query}"
-        end
+        # case input
+        # when "1"
+        #     url = "https://www.swapi.tech/api/people/1"
+        # when "2"
+        #     url = "https://www.swapi.tech/api/people/2"
+        # when "3"
+        #     url = "https://www.swapi.tech/api/people/3"
+        # when "4"
+        #     url = "https://www.swapi.tech/api/people/4"
+        # when "5"
+        #     url = "https://www.swapi.tech/api/people/5"
+        # when "6"
+        #     url = "https://www.swapi.tech/api/people/6"
+        # when "7"
+        #     url = "https://www.swapi.tech/api/people/7"
+        # when "8"
+        #     url = "https://www.swapi.tech/api/people/8"
+        # when "9"
+        #     url = "https://www.swapi.tech/api/people/9"
+        # when "10"
+        #     url = "https://www.swapi.tech/api/people/10"
+        # else 
+        #     url = "https://www.swapi.tech/api/people/#{query}"
+        # end
 
         uri = URI(url)
         response = Net::HTTP.get(uri)
         characters = JSON.parse(response)
-
+        characters["result"]["properties"]
+        # binding.pry
     end
 
-    def create_characters #displays list of characters 1-10
+    def self.create_characters #displays list of characters 1-10
         character = fetch_characters
         # self.fetch_characters.each{|character| Characters.new character.name}
         character["results"].each{|character| Characters.new(character["name"], character["url"])}
     end
 
-    def display_character #displays a selected characters' name, gender, and birth year
-        info = update_character
-        info["results"].each{|info| Characters.new(info["name"], info["gender"], info["birth year"])}
-    end
+    # def display_character #displays a selected characters' name, gender, and birth year
+    #     info = update_character
+    #     info["results"].each{|info| Characters.new(info["name"], info["gender"], info["birth year"])}
+    # end
   
 
 end
