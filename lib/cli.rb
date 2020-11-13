@@ -4,6 +4,37 @@ require 'pry'
 class Cli 
 
     def start
+        puts " 
+        This is a galaxy of wondrous aliens, bizarre monsters, strange Droids, 
+            powerful weapons, great heroes, and terrible villains.  It is a
+                galaxy of fantastic worlds,  magical devices, vast 
+                    fleets, awesome machi-nery, terrible 
+                        conflict, and unending hope.              .         .
+       .        .          .    .    .            .            .                   .
+                      .               ..       .       .   .             .
+        .      .     T h i s   i s   t h e   g a l a x y   o f   . . .             .
+                            .              .       .                    .      .
+       .        .               .       .     .            .
+          .           .        .                     .        .            .
+                    .               .    .          .              .   .         .
+                      _________________      ____       __________
+        .       .    /                 |    /    \\  . |          \
+            .       /    ______   _____| . /      \\   |    ___    |     .     .
+                    \\    \\    |   |       /   /\\  \\  |   |___>   |
+                  .  \\    \\   |   |      /   /__\\  \\.|         _/               .
+        .     ________>    |  |   | .   /            \\   |   |\\   \\_______    .
+             |            /   |   |    /    ______    \\  |   | \\           |
+             |___________/    |___|   /____/      \____\\ |___|  \\__________|    .
+         .     ____    __  . _____  ____      .   __________   .   _________
+              \\    \\  /  \\  /   /  /    \\       |          \\   /         |      .
+               \\    \\/    \\/   /  /      \\      |   __    |  /    ______|  .
+                \\               /  /   /\\   \\ . |   |___>   |  \\    \
+          .      \\             /  /   /__\\   \\   |         _/.   \\    \\            +
+                  \\    /\\    /  /            \\   |   |\\    \\______>    |   .
+                   \\  /  \\  /  /    ______    \\  |   | \\              /          .
+        .       .   \\/    \\/  /____/     \\____\\ |___|  \\____________/  LS
+
+       "
         puts "Welcome Padawan"
         puts "To view Star Wars character, enter 'characters'"
         puts "To leave, enter 'exit'"

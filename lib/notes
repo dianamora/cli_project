@@ -3,6 +3,7 @@ CLI PROJECT -- STAR WARS CHARACTER DIRECTORY
 What I want it to do: 
 -Greet a user and present a selection of Star Wars character names
     -"Welcome! Which character would you like to know about?" Show selection
--Have an option to exit program 
--If they do not exit program and select a character, display character name, age, and rank. Do they belong to 
-the Republic or the Empire
+-Have an option to exit program, put out a phrase if this is the case
+-If they do not exit program and select a character, display character name, age, and birth year. 
+-Provide option at this point to select another character: bring back to main menu
+-Provide option to exit at this point: put out goodbye phrase
