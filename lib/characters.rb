@@ -10,6 +10,14 @@ class Characters
         @@all << self
     end
 
+    # def name #getter
+    #     @name 
+    # end
+
+    # def name=(name) #setter
+    #     @name = name 
+    # end
+
 
     def save
         @@all << self
@@ -31,5 +39,7 @@ class Characters
         @gender = info["gender"]
      
     end
+
+ 
 
 end

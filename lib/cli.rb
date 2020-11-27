@@ -15,25 +15,7 @@ class Cli
         .      .     T h i s   i s   t h e   g a l a x y   o f   . . .             .
                             .              .       .                    .      .
        .        .               .       .     .            .
-          .           .        .                     .        .            .
-                    .               .    .          .              .   .         .
-                      _________________      ____       __________
-        .       .    /                 |    /    \\  . |          \
-            .       /    ______   _____| . /      \\   |    ___    |     .     .
-                    \\    \\    |   |       /   /\\  \\  |   |___>   |
-                  .  \\    \\   |   |      /   /__\\  \\.|         _/               .
-        .     ________>    |  |   | .   /            \\   |   |\\   \\_______    .
-             |            /   |   |    /    ______    \\  |   | \\           |
-             |___________/    |___|   /____/      \____\\ |___|  \\__________|    .
-         .     ____    __  . _____  ____      .   __________   .   _________
-              \\    \\  /  \\  /   /  /    \\       |          \\   /         |      .
-               \\    \\/    \\/   /  /      \\      |   __    |  /    ______|  .
-                \\               /  /   /\\   \\ . |   |___>   |  \\    \
-          .      \\             /  /   /__\\   \\   |         _/.   \\    \\            +
-                  \\    /\\    /  /            \\   |   |\\    \\______>    |   .
-                   \\  /  \\  /  /    ______    \\  |   | \\              /          .
-        .       .   \\/    \\/  /____/     \\____\\ |___|  \\____________/  LS
-
+                             S T A R  W A R S
        "
         puts "Welcome Padawan"
         puts "To view Star Wars character, enter 'characters'"
@@ -70,8 +52,6 @@ class Cli
 
 
     def character_list
-        # api = Api.new
-        # api.display_character
         Characters.all.each_with_index do |character, index|
             puts "#{index + 1}. #{character.name}"
         end
@@ -80,21 +60,26 @@ class Cli
         puts "which character would you like to learn about? Enter Name:"
         input = gets.strip.downcase
 
-
         character_selection(input)
     end
 
     def character_selection(character)
         person = Characters.find_by_name(character)
-        if person == nil
+        input = character.to_i 
+        
+        if person == nil && !(1...10).include?(input)
             invalid_entry
-        else 
-        person.update_character
+        elsif person == nil && (1...10).include?(input)
+            person = Characters.all[input -1]
+            # binding.pry
+        end
+        person.update_character #ideally, would incorporate a 'check' to see if info is already there (if someone asks for Luke twice)
             puts "Name: #{person.name}"
             puts "Gender: #{person.gender}"
             puts "Birth Year: #{person.birth_year}"
-        end
+        
     end
+
 
     def goodbye
         puts "May the force be with you"
@@ -105,3 +90,9 @@ class Cli
     end
 
 end
+
+
+
+
+# input = gets.chomp
+#     index = input_to_index(input)
